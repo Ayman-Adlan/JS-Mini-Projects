@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>JS-Course</title>
+		<style>
+			.style-click-btn {
+				background-color: black;
+				color: white;
+				padding: 10px 15px;
+				border: none;
+				border-radius: 50px;
+				cursor: pointer;
+			}
+			.is-toggled {
+				background-color: lightgray;
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+
+		<button onclick="
+			btnClick('.js-button');
+			" class="js-button style-click-btn">Gaming</button>
+		<button onclick="
+			btnClick('.js-button-2');
+			" class="js-button-2 style-click-btn">Music</button>
+		<button onclick="
+			btnClick('.js-button-3');
+			" class="js-button-3 style-click-btn">Tech</button>
+		<script>
+			function btnClick(selector) {
+			const btn = document.querySelector(selector);
+			if (!btn.classList.contains('is-toggled')) {
+				btn.classList.add('is-toggled');
+			}else {
+				btn.classList.remove('is-toggled');
+				}
+			}
+		</script>
+	</body>
+</html>

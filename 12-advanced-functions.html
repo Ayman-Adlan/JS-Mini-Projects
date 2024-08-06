@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App</title>
+</head>
+<body>
+  <button id="addButton">Add</button>
+  <button id="removeButton">Remove</button>
+
+  <script>
+    let messages = 2;
+    let intervalId;
+
+    function updateNotification() {
+      if (document.title === 'App') {
+        document.title = `(${messages}) New messages`;
+      } else {
+        document.title = 'App';
+      }
+    }
+
+    function startNotification() {
+      intervalId = setInterval(updateNotification, 1000);
+    }
+
+    function stopNotification() {
+      clearInterval(intervalId);
+      document.title = 'App';
+    }
+
+    document.getElementById('addButton').addEventListener('click', function() {
+      messages++;
+      if (!intervalId) {
+        startNotification();
+      }
+    });
+
+    document.getElementById('removeButton').addEventListener('click', function() {
+      if (messages > 0) {
+        messages--;
+        if (messages === 0) {
+          stopNotification();
+        }
+      }
+    });
+
+    // Display the notification when the page first loads.
+    startNotification();
+  </script>
+</body>
+</html>

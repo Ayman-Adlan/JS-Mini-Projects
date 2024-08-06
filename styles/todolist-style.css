@@ -1,0 +1,88 @@
+body {
+  font-family: Arial;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  min-height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+
+
+h2 {
+  /* Customize font properties */
+  font-size: 26px;
+  font-weight: bold;
+  
+  /* Set text color and alignment */
+  color: #333;
+  text-align: center;
+  
+  /* Add some margin to create spacing */
+  margin: 20px 0;
+  
+  /* Optionally, add a border-bottom for a visual separation */
+  border-bottom: 2px solid #ccc;
+}
+
+.input-grid,
+.display-grid {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center;
+  color: rgb(61, 61, 61);  
+}
+.input-grid {
+  margin-bottom: 10px;
+  align-items: stretch;
+}
+.name-input,
+.date-input {
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  box-shadow: 0 0 5px #ccc;
+}
+.name-input,
+.date-input::placeholder {
+  color: rgb(61, 61, 61);  
+}
+
+#button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#button:hover {
+  background-color: #0056b3;
+}
+#button:active {
+  background-color: #003d80;
+}
+#delete-button {
+  padding: 10px;
+  background-color: rgb(214, 0, 0);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#delete-button:hover {
+  background-color: darkred;
+}
+#delete-button:active {
+  background-color: darkred;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DOM Exercises</title>
+</head>
+<body>
+  <button onclick="flipGame('Heads')">Heads</button>
+  <button onclick="flipGame('Tails')">Tails</button>
+  <p class="js-chosen"></p>
+
+  <input type="text" id="js-input" placeholder="Enter your name" onkeydown="enterKey()">
+  <button onclick="
+    showName()
+  ">Submit</button>
+
+  <p class="textName"></p>
+
+
+  <script>
+    const chosenElement = document.querySelector('.js-chosen');
+
+    function flipGame(choice) {
+      chosenElement.innerHTML = `You chose ${choice}`;
+    }
+
+    function showName() {
+      const input = document.querySelector('#js-input').value;
+      if (input) {
+        document.querySelector('.textName')
+        .innerHTML = `Your Name is: ${input}`;
+      } else {
+        document.querySelector('.textName')
+        .innerHTML = `Please enter your name`;
+      }
+    }
+    function enterKey() {
+      if (event.key === 'Enter') {
+        showName();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DOM Projects</title>
+<style>
+  body {
+    font-family: Arial;
+  }
+  .subscribe-style {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .is-subscribed {
+    background-color: lightgray;
+    color: black;
+  }
+
+  /* Shipping calc. style */
+  .input-styling {
+    font-size: 14px;
+    padding: 10px 6px;
+  }
+  .calc-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 12px 15px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Creating subscribe button -->
+  <p>Youtube Subscribe Button</p>
+  <button class="js-sub-btn subscribe-style" onclick="
+    subBtn();
+  ">Subscribe</button>
+
+
+  <!-- Creatin shipping calculator -->
+
+  <p>Amazon Shipping Calculator</p>
+  <p>Orders under $40 = +$10 shipping</p>
+  <p>Orders over $40 = FREE shipping.</p>
+  <input onkeydown="
+    onKeyDown(event);
+  " class="js-input input-styling" type="text" placeholder="Cost of order">
+  <button onclick="
+    shippingCalculation();
+  " class="calc-btn">Calculate</button>
+  <p class="js-totalCost"></p>
+
+
+  <script>
+    function subBtn() {
+      const btnElm = document.querySelector('.js-sub-btn');
+  
+      if (btnElm.innerText === 'Subscribe') {
+        btnElm.innerText = 'Subscribed';
+        btnElm.classList.add('is-subscribed');
+      } else {
+        btnElm.innerText = 'Subscribe';
+        btnElm.classList.remove('is-subscribed');
+      }
+    };
+
+    function onKeyDown (event) {
+      if (event.key === 'Enter') {
+        shippingCalculation();
+      }
+    };
+    function shippingCalculation() {
+      const inputElement = document.querySelector('.js-input');
+      let cost = parseFloat(inputElement.value);
+      if (isNaN(cost) || cost < 0) {
+        throw new Error("Error: cost cannot be less than $0 or non-numeric");
+      } else if (cost < 40) {
+        cost += 10;
+      }
+      document.querySelector('.js-totalCost').innerHTML =
+        isNaN(cost) ? "Please enter the amount" : `$${cost.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
